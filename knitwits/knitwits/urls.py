@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('low-stock/', views.low_stock, name='low_stock'),
+    path('out-of-stock/', views.out_of_stock, name='out_of_stock'),
+    path('pick-list/', views.all_pick_list, name='pick_list'),
 ]

@@ -1,6 +1,7 @@
 
 
 from django.shortcuts import render
+from .models import Item
 
 
 def low_stock(request): #returns a list of items with low stock (5 or less)

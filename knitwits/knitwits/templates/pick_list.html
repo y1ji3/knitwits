@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pick List</title>
+</head>
+<body>
+	<h1>Pick List Items</h1>
+
+	<nav>
+		<a href="/low-stock/">Low Stock</a> |
+		<a href="/out-of-stock/">Out of Stock</a> |
+		<a href="/pick-list/">Pick List</a>
+	</nav>
+
+	<ul>
+		{% for item in pick_list_items %}
+			<li>{{ item.name }} - Stock: {{ item.stock }}</li>
+		{% empty %}
+			<li>No items currently in pick list.</li>
+		{% endfor %}
+	</ul>
+</body>
+</html>
