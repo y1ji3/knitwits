@@ -16,6 +16,22 @@
 		<a href="/notifications/">Notifications</a>
 	</nav>
 
-	<p>{{ store_name|default:"Main" }} Store is low on {{ item_count|default:0 }} items</p>
+	<h2>Low Stock Locations</h2>
+	<ul>
+		{% for location in low_stock_location_names %}
+			<li>{{ location }}</li>
+		{% empty %}
+			<li>No low stock locations.</li>
+		{% endfor %}
+	</ul>
+
+	<h2>Out of Stock Locations</h2>
+	<ul>
+		{% for location in out_of_stock_location_names %}
+			<li>{{ location }}</li>
+		{% empty %}
+			<li>No out of stock locations.</li>
+		{% endfor %}
+	</ul>
 </body>
 </html>
