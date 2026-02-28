@@ -18,7 +18,7 @@ class Product(models.Model):
         return self.name
 
 
-class ProductInventory(models.Model):
+class ShopInventory(models.Model):
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE, related_name='inventory')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='inventory')
     quantity = models.IntegerField(default=0)
@@ -27,4 +27,4 @@ class ProductInventory(models.Model):
         return f"{self.product.name} at {self.shop.name}"
 
     class Meta:
-        unique_together = ('shop', 'product')  # prevents duplicate entries
+        unique_together = ('shop', 'product')  
