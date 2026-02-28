@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'knitwits',
+    'database',
 ]
 
 MIDDLEWARE = [
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'knitwits.urls'
+ROOT_URLCONF = 'database.urls'
 
 TEMPLATES = [
     {
@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'knitwits.wsgi.application'
+WSGI_APPLICATION = 'database.wsgi.application'
 
 
 # Database

@@ -9,6 +9,7 @@
 	<h1>Low Stock Items</h1>
 
 	<nav>
+		<a href="/">Dashboard</a> |
 		<a href="/low-stock/">Low Stock</a> |
 		<a href="/out-of-stock/">Out of Stock</a> |
 		<a href="/pick-list/">Pick List</a>
@@ -16,7 +17,7 @@
 
 	<ul>
 		{% for item in low_stock_items %}
-			<li>{{ item.name }} - Stock: {{ item.stock }}</li>
+			<li>{{ item.shop_name }} - Stock: {{ item.shop_stock }}</li>
 		{% empty %}
 			<li>No low stock items.</li>
 		{% endfor %}

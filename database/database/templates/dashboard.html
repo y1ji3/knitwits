@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard</title>
+</head>
+<body>
+	<h1>Store Stock Dashboard</h1>
+
+	<nav>
+		<a href="/">Dashboard</a> |
+		<a href="/low-stock/">Low Stock</a> |
+		<a href="/out-of-stock/">Out of Stock</a> |
+		<a href="/pick-list/">Pick List</a>
+	</nav>
+
+	<table border="1" cellpadding="8" cellspacing="0">
+		<thead>
+			<tr>
+				<th>Store</th>
+				<th>Stock Level</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for store in stores %}
+				<tr>
+					<td>{{ store.shop_name }}</td>
+					<td>{{ store.shop_stock }}</td>
+				</tr>
+			{% empty %}
+				<tr>
+					<td colspan="2">No stores found.</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</body>
+</html>
