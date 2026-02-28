@@ -3,10 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Out of Stock</title>
+	<title>Notifications</title>
 </head>
 <body>
-	<h1>Out of Stock Items</h1>
+	<h1>Notifications</h1>
 
 	<nav>
 		<a href="/">Dashboard</a> |
@@ -16,12 +16,6 @@
 		<a href="/notifications/">Notifications</a>
 	</nav>
 
-	<ul>
-		{% for item in out_of_stock_items %}
-			<li>{{ item.shop.name }} - {{ item.product.name }} ({{ item.product.variant }}) - Stock: {{ item.stock }}</li>
-		{% empty %}
-			<li>No out of stock items.</li>
-		{% endfor %}
-	</ul>
+	<p>{{ store_name|default:"Main" }} Store is low on {{ item_count|default:0 }} items</p>
 </body>
 </html>

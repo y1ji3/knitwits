@@ -1,7 +1,7 @@
 
 
 from django.shortcuts import render
-from django.db.models import Sum
+from django.db.models import Sum, Count
 from .models import Shop, ShopInventory
 
 def dashboard(request):
@@ -22,3 +22,21 @@ def all_pick_list(request): #returns a list of items that need to be picked (sto
     print(list(pick_list_items))
     return render(request, 'pick_list.html', {'pick_list_items': pick_list_items})
 
+def notifications(request):
+    low_stock_by_store = (
+        ShopInventory.objects
+        .filter(stock__lte=5)
+        .values('shop__name')
+        .annotate(item_count=Count('id'))
+        .order_by('shop__name')
+    )
+
+    if low_stock_by_store:
+        store_name = low_stock_by_store[0]['shop__name']
+        item_count = low_stock_by_store[0]['item_count']
+    else:
+        store_name = 'Main'
+        item_count = 0
+
+    return render(request, 'notifications.html', {'store_name': store_name, 'item_count': item_count})
+   
