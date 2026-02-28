@@ -1,0 +1,57 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Thresholds</title>
+</head>
+<body>
+	<h1>Pick List Items</h1>
+
+	<nav>
+		<a href="/">Dashboard</a> |
+		<a href="/low-stock/">Low Stock</a> |
+		<a href="/out-of-stock/">Out of Stock</a> |
+		<a href="/pick-list/">Pick List</a> |
+		<a href="/notifications/">Notifications</a> |
+        <a href="/threshholds/">Thresholds</a>
+	</nav>
+
+	<table border="1" cellpadding="8" cellspacing="0">
+		<thead>
+			<tr>
+				<th>Store</th>
+				<th>Product</th>
+				<th>Variant</th>
+				<th>Current Stock</th>
+				<th>Pull Needed</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for store in thresholds %}
+			<tr>
+				<td>{{ store.shop.name }}</td>
+				<td>{{ store.product.name }}</td>
+				<td>{{ store.product.variant }}</td>
+				<td>{{ store.par_value }}</td>
+			</tr>
+			{% empty %}
+				<tr>
+					<td colspan="5">No stores found.</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	{% comment %} <ul>
+		{% for item in pick_list_items %}
+			<li>{{ item.shop.name }} - {{ item.product.name }} ({{ item.product.variant }}) - Stock: {{ item.stock }}</li>
+		{% empty %}
+			<li>No items currently in pick list.</li>
+		{% endfor %}
+	</ul> {% endcomment %}
+</body>
+</html>

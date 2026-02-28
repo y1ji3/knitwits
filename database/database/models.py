@@ -12,6 +12,7 @@ class Product(models.Model):
     sku = models.CharField(max_length=50)
     name = models.CharField(max_length=250)
     variant = models.CharField(max_length=250)
+    category = models.CharField(max_length=250)
 
     def __str__(self):
         return f'{self.sku}: {self.name} -- {self.variant}'
