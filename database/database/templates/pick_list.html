@@ -9,53 +9,74 @@
 	<title>Pick List</title>
 	<style>
 		body { margin: 0; padding: 24px; font-family: Arial, sans-serif; background: #f3f4f6; color: #111827; }
-		.page { max-width: 1200px; margin: 0 auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; }
+		.page { position: relative; max-width: 1200px; margin: 0 auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; }
+		.notify-btn { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 10px; border: 1px solid #d1d5db; background: #f9fafb; color: #1f2937; display: inline-grid; place-items: center; text-decoration: none; font-size: 18px; }
+		.notify-btn:hover { background: #e5e7eb; }
+		.notify-btn.active { background: #111827; color: #ffffff; border-color: #111827; }
 		h1 { margin-top: 0; margin-bottom: 16px; }
 		nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
 		nav a { text-decoration: none; color: #1f2937; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; padding: 6px 10px; }
 		nav a:hover { background: #e5e7eb; }
+		nav a.active { background: #111827; color: #ffffff; border-color: #111827; }
 		form { margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 		select, button { padding: 7px 10px; border-radius: 8px; border: 1px solid #d1d5db; font-size: 14px; }
 		button { background: #111827; color: #fff; border: none; cursor: pointer; }
 		button:hover { background: #374151; }
+		.content-layout { display: block; }
+		.icon-btn { width: 44px; height: 44px; border-radius: 12px; display: inline-grid; place-items: center; border: 1px solid #d1d5db; text-decoration: none; }
+		.icon-btn .glyph { display: block; line-height: 1; }
+		.edit-icon { background: #111827; color: #ffffff; border-color: #111827; font-size: 22px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12); }
+		.edit-icon:hover { background: #374151; }
+		.edit-floating { position: fixed; right: 22px; bottom: 22px; z-index: 1000; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); }
+		.btn-secondary { padding: 7px 10px; border-radius: 8px; border: 1px solid #d1d5db; font-size: 14px; background: #f9fafb; color: #1f2937; }
+		.btn-secondary:hover { background: #e5e7eb; }
+		.filter-controls { display: flex; align-items: center; justify-content: center; gap: 8px; }
+		.filter-controls a { text-decoration: none; }
+		#shop { border: 1px solid #e5e7eb; background: #f9fafb; color: #111827; box-shadow: none; }
+		#shop:focus { outline: none; border-color: #d1d5db; }
+		.table-panel { min-width: 0; }
+		.table-toolbar { display: flex; justify-content: flex-end; margin-bottom: 8px; }
+		.table-toolbar a { text-decoration: none; }
+		.refresh-icon { background: #f9fafb; color: #1f2937; }
+		.refresh-icon:hover { background: #e5e7eb; }
 		table { width: 100%; border-collapse: collapse; }
 		th, td { text-align: left; padding: 10px; border-bottom: 1px solid #e5e7eb; }
 		th { background: #f9fafb; }
+		@media (max-width: 900px) { .edit-floating { right: 14px; bottom: 14px; } }
 	</style>
 </head>
 <body>
 	<main class="page">
+	<a href="/notifications/" class="notify-btn {% if active_page == 'notifications' %}active{% endif %}" title="Notifications" aria-label="Notifications">🔔</a>
 	<h1>Pick List Items</h1>
 
 	<nav>
-		<a href="/">Dashboard</a>
-		<a href="/low-stock/">Low Stock</a>
-		<a href="/out-of-stock/">Out of Stock</a>
-		<a href="/pick-list/">Pick List</a>
-		<a href="/notifications/">Notifications</a>
-		<a href="/thresholds/">Thresholds</a>
-		<a href="/pick-list/?sort=shop">Sort by Shop</a>
-		<a href="/pick-list/">Default Sort</a>
+		<a href="/" class="{% if active_page == 'dashboard' %}active{% endif %}">Dashboard</a>
+		<a href="/stock-status/" class="{% if active_page == 'stock_status' %}active{% endif %}">Stock Status</a>
+		<a href="/pick-list/" class="{% if active_page == 'pick_list' %}active{% endif %}">Pick List</a>
 	</nav>
 
-	<form method="get" action="/pick-list/">
-		<label for="shop">Pick a store:</label>
-		<select name="shop" id="shop">
-			<option value="">All Stores</option>
-			{% for store in stores %}
-				<option value="{{ store.shop_id }}" {% if selected_shop_id == store.shop_id|stringformat:"s" %}selected{% endif %}>{{ store.name }}</option>
-			{% endfor %}
-		</select>
-		{% if current_sort %}
-			<input type="hidden" name="sort" value="{{ current_sort }}">
-		{% endif %}
-		<button type="submit">Apply</button>
-	</form>
-
+	<div class="content-layout">
+		<div class="table-panel">
+		<div class="table-toolbar">
+			<a href="/pick-list/" class="icon-btn refresh-icon" title="Refresh" aria-label="Refresh"><span class="glyph">↻</span></a>
+		</div>
 	<table>
 		<thead>
 			<tr>
-				<th>Store</th>
+				<th> <form method="get" action="/pick-list/" class="filter-controls">
+						<select name="shop" id="shop">
+							<option value="">All Stores</option>
+							{% for store in stores %}
+								<option value="{{ store.shop_id }}" {% if selected_shop_id == store.shop_id|stringformat:"s" %}selected{% endif %}>{{ store.name }}</option>
+							{% endfor %}
+						</select>
+						{% if current_sort %}
+							<input type="hidden" name="sort" value="{{ current_sort }}">
+						{% endif %}
+						<button type="submit" class="btn-secondary">Apply</button>
+					</form>
+				</th>
 				<th>Product</th>
 				<th>Variant</th>
 				<th>Current Stock</th>
@@ -78,6 +99,10 @@
 			{% endfor %}
 		</tbody>
 	</table>
+		</div>
+	</div>
+
+	<a href="/thresholds/" class="icon-btn edit-icon edit-floating" title="Edit Thresholds" aria-label="Edit Thresholds"><span class="glyph">✎</span></a>
 
 	{% comment %} <ul>
 		{% for item in pick_list_items %}

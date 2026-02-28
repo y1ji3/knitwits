@@ -9,15 +9,24 @@ from .models import Shop, ShopInventory, TierThreshold
 
 def dashboard(request):
     stores = Shop.objects.annotate(shop_stock=Sum('inventory__stock')).order_by('name')
-    return render(request, 'dashboard.html', {'stores': stores})
+    return render(request, 'dashboard.html', {'stores': stores, 'active_page': 'dashboard'})
 
 def low_stock(request): #returns a list of items with low stock (5 or less)
-    low_stock_items = ShopInventory.objects.select_related('shop', 'product').filter(stock__lte=5).order_by('shop__name', 'product__name')
-    return render(request, 'low_stock.html', {'low_stock_items': low_stock_items})
+    return redirect('/stock-status/')
 
 def out_of_stock(request): #returns a list of items that are out of stock (stock = 0)
+    return redirect('/stock-status/')
+
+
+def stock_status(request):
+    low_stock_items = ShopInventory.objects.select_related('shop', 'product').filter(stock__gt=0, stock__lte=5).order_by('shop__name', 'product__name')
     out_of_stock_items = ShopInventory.objects.select_related('shop', 'product').filter(stock=0).order_by('shop__name', 'product__name')
-    return render(request, 'out_of_stock.html', {'out_of_stock_items': out_of_stock_items})
+    context = {
+        'low_stock_items': low_stock_items,
+        'out_of_stock_items': out_of_stock_items,
+        'active_page': 'stock_status',
+    }
+    return render(request, 'stock_status.html', context)
 
 def all_pick_list(request): #returns a list of items that need to be picked (stock 4 or less)
     sort = request.GET.get('sort')
@@ -82,6 +91,7 @@ def all_pick_list(request): #returns a list of items that need to be picked (sto
         'current_sort': sort,
         'stores': stores,
         'selected_shop_id': selected_shop_id,
+        'active_page': 'pick_list',
     })
     response['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
     return response
@@ -105,6 +115,7 @@ def notifications(request):
     context = {
         'low_stock_location_names': low_stock_location_names,
         'out_of_stock_location_names': out_of_stock_location_names,
+        'active_page': 'notifications',
     }
     return render(request, 'notifications.html', context)
 
@@ -155,6 +166,7 @@ def thresholds(request):
         'threshold_values': default_values,
         'save_error': save_error,
         'saved': saved,
+        'active_page': 'thresholds',
     }
     return render(request, 'thresh-holds.html', context)
    

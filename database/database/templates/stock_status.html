@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Out of Stock</title>
+	<title>Stock Status</title>
 	<style>
 		body { margin: 0; padding: 24px; font-family: Arial, sans-serif; background: #f3f4f6; color: #111827; }
 		.page { position: relative; max-width: 1100px; margin: 0 auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; }
@@ -11,6 +11,7 @@
 		.notify-btn:hover { background: #e5e7eb; }
 		.notify-btn.active { background: #111827; color: #ffffff; border-color: #111827; }
 		h1 { margin-top: 0; margin-bottom: 16px; }
+		h2 { margin-top: 22px; margin-bottom: 10px; }
 		nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
 		nav a { text-decoration: none; color: #1f2937; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; padding: 6px 10px; }
 		nav a:hover { background: #e5e7eb; }
@@ -22,7 +23,7 @@
 <body>
 	<main class="page">
 	<a href="/notifications/" class="notify-btn {% if active_page == 'notifications' %}active{% endif %}" title="Notifications" aria-label="Notifications">🔔</a>
-	<h1>Out of Stock Items</h1>
+	<h1>Stock Status</h1>
 
 	<nav>
 		<a href="/" class="{% if active_page == 'dashboard' %}active{% endif %}">Dashboard</a>
@@ -30,6 +31,16 @@
 		<a href="/pick-list/" class="{% if active_page == 'pick_list' %}active{% endif %}">Pick List</a>
 	</nav>
 
+	<h2>Low Stock Items</h2>
+	<ul>
+		{% for item in low_stock_items %}
+			<li>{{ item.shop.name }} - {{ item.product.name }} ({{ item.product.variant }}) - Stock: {{ item.stock }}</li>
+		{% empty %}
+			<li>No low stock items.</li>
+		{% endfor %}
+	</ul>
+
+	<h2>Out of Stock Items</h2>
 	<ul>
 		{% for item in out_of_stock_items %}
 			<li>{{ item.shop.name }} - {{ item.product.name }} ({{ item.product.variant }}) - Stock: {{ item.stock }}</li>

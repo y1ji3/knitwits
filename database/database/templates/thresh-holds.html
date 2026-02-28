@@ -9,11 +9,15 @@
 	<title>Thresholds</title>
 	<style>
 		body { margin: 0; padding: 24px; font-family: Arial, sans-serif; background: #f3f4f6; color: #111827; }
-		.page { max-width: 1100px; margin: 0 auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; }
+		.page { position: relative; max-width: 1100px; margin: 0 auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; }
+		.notify-btn { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 10px; border: 1px solid #d1d5db; background: #f9fafb; color: #1f2937; display: inline-grid; place-items: center; text-decoration: none; font-size: 18px; }
+		.notify-btn:hover { background: #e5e7eb; }
+		.notify-btn.active { background: #111827; color: #ffffff; border-color: #111827; }
 		h1 { margin-top: 0; margin-bottom: 16px; }
 		nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
 		nav a { text-decoration: none; color: #1f2937; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; padding: 6px 10px; }
 		nav a:hover { background: #e5e7eb; }
+		nav a.active { background: #111827; color: #ffffff; border-color: #111827; }
 		table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
 		th, td { text-align: left; padding: 10px; border-bottom: 1px solid #e5e7eb; }
 		th { background: #f9fafb; }
@@ -27,15 +31,14 @@
 </head>
 <body>
 	<main class="page">
+	<a href="/notifications/" class="notify-btn {% if active_page == 'notifications' %}active{% endif %}" title="Notifications" aria-label="Notifications">🔔</a>
 	<h1>Thresholds</h1>
 
 	<nav>
-		<a href="/">Dashboard</a>
-		<a href="/low-stock/">Low Stock</a>
-		<a href="/out-of-stock/">Out of Stock</a>
-		<a href="/pick-list/">Pick List</a>
-		<a href="/notifications/">Notifications</a>
-		<a href="/thresholds/">Thresholds</a>
+		<a href="/" class="{% if active_page == 'dashboard' %}active{% endif %}">Dashboard</a>
+		<a href="/stock-status/" class="{% if active_page == 'stock_status' %}active{% endif %}">Stock Status</a>
+		<a href="/pick-list/" class="{% if active_page == 'pick_list' %}active{% endif %}">Pick List</a>
+		<a href="/thresholds/" class="{% if active_page == 'thresholds' %}active{% endif %}">Thresholds</a>
 	</nav>
 
 	<form method="post" action="/thresholds/">
