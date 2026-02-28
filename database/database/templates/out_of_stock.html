@@ -17,7 +17,7 @@
 
 	<ul>
 		{% for item in out_of_stock_items %}
-			<li>{{ item.shop_name }} - Stock: {{ item.shop_stock }}</li>
+			<li>{{ item.shop.name }} - {{ item.product.name }} ({{ item.product.variant }}) - Stock: {{ item.stock }}</li>
 		{% empty %}
 			<li>No out of stock items.</li>
 		{% endfor %}

@@ -1,20 +1,20 @@
 from django.db import models
 import uuid
 
-class Sizes(models.TextChoices):
-    XS = "XS"
-    S = "S"
-    M = "M"
-    L = "L"
-    XL = "XL"
+# class Sizes(models.TextChoices):
+#     XS = "XS"
+#     S = "S"
+#     M = "M"
+#     L = "L"
+#     XL = "XL"
 
-    SIZE_STRINGS = {
-        XS: "X-Small",
-        S: "Small",
-        M: "Medium",
-        L: "Large",
-        XL: "X-Large"
-    }
+#     SIZE_STRINGS = {
+#         XS: "X-Small",
+#         S: "Small",
+#         M: "Medium",
+#         L: "Large",
+#         XL: "X-Large"
+#     }
 
 class Shop(models.Model):
     shop_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

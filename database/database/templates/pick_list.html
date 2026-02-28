@@ -17,7 +17,7 @@
 
 	<ul>
 		{% for item in pick_list_items %}
-			<li>{{ item.shop_name }} - Stock: {{ item.shop_stock }}</li>
+			<li>{{ item.shop.name }} - {{ item.product.name }} ({{ item.product.variant }}) - Stock: {{ item.stock }}</li>
 		{% empty %}
 			<li>No items currently in pick list.</li>
 		{% endfor %}
