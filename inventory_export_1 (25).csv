@@ -1,0 +1,70 @@
+Handle,Title,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Option3 Name,Option3 Value,SKU,HS Code,COO,9783 South 600 West,Main Warehouse Receiving,Fashion Place,The Shops at South Towne,University Place,City Creek,Station Park,Newgate Mall,Southgate Mall,Grand Teton Mall,Magic Valley Mall,Red Cliffs,Damages,Mountain View Village,Meridian,SanTan Village,Warehouse Sale,Logan
+millie-reverse-seam-top-in-black,Millie Reverse Seam Top in Black,Size,L,Color,Black,,,10641382,,,30,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+millie-reverse-seam-top,Millie Reverse Seam Top in Blue,Size,XS,Color,Blue,,,10641384,,,17,3,1,2,3,1,3,2,2,2,2,1,0,2,3,1,0,3
+millie-reverse-seam-top,Millie Reverse Seam Top in Blue,Size,S,Color,Blue,,,10641385,,,23,9,0,1,1,0,3,1,2,1,2,1,0,3,2,2,0,2
+millie-reverse-seam-top,Millie Reverse Seam Top in Blue,Size,M,Color,Blue,,,10641386,,,25,6,2,1,0,1,3,2,1,1,1,1,0,5,0,0,0,1
+gen-collared-top,Gen Collared Top in Grey,Size,XS,Color,Grey,,,10643613,,,26,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+gen-collared-top,Gen Collared Top in Grey,Size,S,Color,Grey,,,10643614,,,35,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+gen-collared-top,Gen Collared Top in Grey,Size,M,Color,Grey,,,10643615,,,26,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+gen-collared-top,Gen Collared Top in Grey,Size,L,Color,Grey,,,10643616,,,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+gen-collared-top-in-rust,Gen Collared Top in Rust,Size,XS,Color,Rust,,,10643618,,,17,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+gen-collared-top-in-rust,Gen Collared Top in Rust,Size,S,Color,Rust,,,10643619,,,21,-2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+gen-collared-top-in-rust,Gen Collared Top in Rust,Size,M,Color,Rust,,,10643620,,,6,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+gen-collared-top-in-rust,Gen Collared Top in Rust,Size,L,Color,Rust,,,10643621,,,8,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+apollo-knit-tank-top-in-red,Apollo Knit Tank Top in Red,Size,XS,Color,Red,,,10644097,,,20,0,0,0,0,0,1,0,1,0,1,0,0,0,1,0,0,0
+apollo-knit-tank-top-in-red,Apollo Knit Tank Top in Red,Size,S,Color,Red,,,10644098,,,48,0,0,0,0,0,0,0,1,1,2,0,0,0,0,0,0,1
+apollo-knit-tank-top-in-red,Apollo Knit Tank Top in Red,Size,M,Color,Red,,,10644099,,,19,0,0,0,0,0,0,0,2,1,0,0,0,2,0,0,0,0
+apollo-knit-tank-top-in-red,Apollo Knit Tank Top in Red,Size,L,Color,Red,,,10644100,,,15,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0
+apollo-knit-tank-top-in-yellow,Apollo Knit Tank Top in Yellow,Size,XS,Color,Yellow,,,10644102,,,25,0,0,2,0,1,1,0,0,0,2,0,0,1,0,0,0,0
+apollo-knit-tank-top-in-yellow,Apollo Knit Tank Top in Yellow,Size,S,Color,Yellow,,,10644103,,,68,0,2,1,0,0,0,2,0,0,0,0,0,0,1,0,0,1
+apollo-knit-tank-top-in-yellow,Apollo Knit Tank Top in Yellow,Size,M,Color,Yellow,,,10644104,,,23,0,0,3,0,2,0,1,0,0,2,0,0,2,0,0,0,1
+apollo-knit-tank-top-in-yellow,Apollo Knit Tank Top in Yellow,Size,L,Color,Yellow,,,10644105,,,14,1,0,1,0,0,1,1,0,0,1,0,0,1,0,0,0,1
+apollo-knit-tank-top-in-light-blue,Apollo Knit Tank Top in Light Blue,Size,XS,Color,Light Blue,,,10644107,,,36,0,1,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0
+apollo-knit-tank-top-in-light-blue,Apollo Knit Tank Top in Light Blue,Size,S,Color,Light Blue,,,10644108,,,72,-1,2,0,0,0,0,0,2,3,0,1,0,1,2,0,0,0
+apollo-knit-tank-top-in-light-blue,Apollo Knit Tank Top in Light Blue,Size,M,Color,Light Blue,,,10644109,,,40,0,0,0,0,1,0,0,3,3,0,3,0,3,3,2,0,3
+apollo-knit-tank-top-in-light-blue,Apollo Knit Tank Top in Light Blue,Size,L,Color,Light Blue,,,10644110,,,20,-1,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0
+apollo-knit-tank-top-in-beige,Apollo Knit Tank Top in Beige,Size,XS,Color,Beige,,,10644112,,,20,0,0,1,0,0,1,0,2,2,2,0,0,0,0,0,0,0
+apollo-knit-tank-top-in-beige,Apollo Knit Tank Top in Beige,Size,S,Color,Beige,,,10644113,,,49,0,1,1,1,0,2,2,2,1,2,0,0,0,0,0,0,1
+apollo-knit-tank-top-in-beige,Apollo Knit Tank Top in Beige,Size,M,Color,Beige,,,10644114,,,26,1,0,0,0,2,1,2,3,2,0,0,0,0,0,0,0,3
+apollo-knit-tank-top-in-beige,Apollo Knit Tank Top in Beige,Size,L,Color,Beige,,,10644115,,,14,0,0,0,0,0,1,1,0,1,0,0,0,0,0,1,0,0
+apollo-knit-tank-top-in-black,Apollo Knit Tank Top in Black,Size,XS,Color,Black,,,10644117,,,17,1,0,2,0,2,1,0,2,1,2,1,0,0,0,0,0,1
+apollo-knit-tank-top-in-black,Apollo Knit Tank Top in Black,Size,S,Color,Black,,,10644118,,,47,0,0,2,0,0,1,2,2,1,2,0,0,0,1,0,0,0
+apollo-knit-tank-top-in-black,Apollo Knit Tank Top in Black,Size,M,Color,Black,,,10644119,,,16,0,0,1,0,2,0,0,3,1,2,2,0,0,2,1,0,1
+apollo-knit-tank-top-in-black,Apollo Knit Tank Top in Black,Size,L,Color,Black,,,10644120,,,10,0,0,1,0,0,0,1,1,0,0,0,0,0,2,0,0,0
+apollo-knit-tank-top-in-brown,Apollo Knit Tank Top in Brown,Size,XS,Color,Brown,,,10644122,,,29,1,0,0,0,0,2,0,2,0,2,1,0,1,1,0,0,0
+apollo-knit-tank-top-in-brown,Apollo Knit Tank Top in Brown,Size,S,Color,Brown,,,10644123,,,59,4,2,0,0,1,3,0,2,0,2,0,0,0,0,0,0,0
+apollo-knit-tank-top-in-brown,Apollo Knit Tank Top in Brown,Size,M,Color,Brown,,,10644124,,,33,1,0,0,1,2,3,0,3,0,2,0,0,0,0,0,0,2
+apollo-knit-tank-top-in-brown,Apollo Knit Tank Top in Brown,Size,L,Color,Brown,,,10644125,,,16,1,0,0,0,1,1,0,1,0,1,0,0,0,2,0,0,0
+maizey-scalloped-knit-top,Maizey Scalloped Knit Top,Size,S,Color,Blue,,,10646603,,,11,1,4,2,4,2,4,2,2,2,2,4,0,4,4,0,0,4
+maizey-scalloped-knit-top,Maizey Scalloped Knit Top,Size,M,Color,Blue,,,10646604,,,12,1,4,2,4,4,4,2,2,2,2,4,0,4,4,2,0,4
+maizey-scalloped-knit-top,Maizey Scalloped Knit Top,Size,L,Color,Blue,,,10646605,,,12,1,3,2,4,4,4,2,2,2,2,4,0,4,4,1,0,4
+maui-contrast-sweater,Maui Contrast Sweater,Size,XS,Color,Brown,,,10648330,,,45,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+maui-contrast-sweater,Maui Contrast Sweater,Size,S,Color,Brown,,,10648331,,,95,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+maui-contrast-sweater,Maui Contrast Sweater,Size,M,Color,Brown,,,10648332,,,93,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+maui-contrast-sweater,Maui Contrast Sweater,Size,L,Color,Brown,,,10648333,,,32,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+maui-contrast-sweater,Maui Contrast Sweater,Size,XL,Color,Brown,,,10648334,,,12,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ariya-asymmetrical-top,Ariya Asymmetrical Top in Black,Size,XS,Color,Black,,,10648983,,,14,1,0,0,0,2,0,0,0,0,0,1,1,0,0,0,0,0
+ariya-asymmetrical-top,Ariya Asymmetrical Top in Black,Size,S,Color,Black,,,10648984,,,27,-3,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0
+ariya-asymmetrical-top-in-green,Ariya Asymmetrical Top in Green,Size,XS,Color,Green,,,10648988,,,23,0,2,2,0,2,2,2,2,0,2,2,0,2,2,0,0,1
+ariya-asymmetrical-top-in-green,Ariya Asymmetrical Top in Green,Size,S,Color,Green,,,10648989,,,55,1,3,3,1,3,3,2,3,0,3,2,0,3,2,0,0,3
+ariya-asymmetrical-top-in-green,Ariya Asymmetrical Top in Green,Size,M,Color,Green,,,10648990,,,24,0,3,3,3,3,4,2,1,0,2,2,0,3,2,0,0,2
+ariya-asymmetrical-top-in-green,Ariya Asymmetrical Top in Green,Size,L,Color,Green,,,10648991,,,8,0,0,1,1,1,1,1,1,0,1,1,0,1,1,0,0,1
+apollo-knit-tank-top,Apollo Knit Tank Top in White,Size,XS,Color,White,,,10631879,,,14,0,0,1,0,0,0,1,2,0,1,0,0,0,0,0,0,2
+apollo-knit-tank-top,Apollo Knit Tank Top in White,Size,S,Color,White,,,10631880,,,33,1,0,0,0,0,1,0,2,1,0,0,0,0,1,0,0,0
+apollo-knit-tank-top,Apollo Knit Tank Top in White,Size,M,Color,White,,,10631881,,,9,0,3,1,0,0,1,0,3,2,2,1,0,0,2,0,0,2
+apollo-knit-tank-top-in-navy,Apollo Knit Tank Top in Navy,Size,S,Color,Navy,,,10631885,,,28,0,4,3,0,1,4,1,1,3,3,4,0,4,2,3,0,3
+apollo-knit-tank-top-in-navy,Apollo Knit Tank Top in Navy,Size,L,Color,Navy,,,10631887,,,6,0,3,1,2,2,2,1,1,1,1,2,0,4,2,1,0,2
+apollo-knit-tank-top-in-grey,Apollo Knit Tank Top in Grey,Size,XS,Color,Grey,,,10640726,,,57,0,0,2,0,0,2,2,0,1,2,0,0,1,2,0,0,2
+apollo-knit-tank-top-in-grey,Apollo Knit Tank Top in Grey,Size,S,Color,Grey,,,10640727,,,110,1,0,2,0,3,3,2,1,3,4,1,0,2,2,0,0,2
+apollo-knit-tank-top-in-grey,Apollo Knit Tank Top in Grey,Size,M,Color,Grey,,,10640728,,,64,0,2,1,0,3,3,2,1,3,2,1,0,0,2,0,0,3
+apollo-knit-tank-top-in-grey,Apollo Knit Tank Top in Grey,Size,L,Color,Grey,,,10640729,,,38,-1,0,1,0,1,1,1,1,1,1,0,0,0,0,0,0,0
+apollo-knit-tank-top-in-grey,Apollo Knit Tank Top in Grey,Size,XL,Color,Grey,,,10640730,,,7,-1,1,0,0,0,1,1,0,0,1,1,0,0,1,1,0,0
+jaida-contrast-knit-top,Jaida Contrast Knit Top,Size,XS,Color,Ivory,,,10640036,,,7,0,0,0,1,2,0,0,0,0,0,6,0,1,2,0,0,3
+jaida-contrast-knit-top,Jaida Contrast Knit Top,Size,S,Color,Ivory,,,10640037,,,10,0,4,0,5,2,0,0,0,0,0,8,0,4,1,0,0,2
+jaida-contrast-knit-top,Jaida Contrast Knit Top,Size,M,Color,Ivory,,,10640038,,,8,0,1,0,5,0,0,0,0,0,0,9,0,3,1,0,0,1
+millie-reverse-seam-top-in-tan,Millie Reverse Seam Top in Tan,Size,XS,Color,Tan,,,10641374,,,15,-2,4,2,3,2,3,2,2,2,2,2,0,4,4,1,0,1
+millie-reverse-seam-top-in-tan,Millie Reverse Seam Top in Tan,Size,S,Color,Tan,,,10641375,,,35,0,3,2,3,1,4,1,2,1,1,2,0,2,2,2,0,2
+millie-reverse-seam-top-in-tan,Millie Reverse Seam Top in Tan,Size,M,Color,Tan,,,10641376,,,19,3,4,1,1,1,4,1,0,1,2,1,0,4,3,1,0,2
+millie-reverse-seam-top-in-black,Millie Reverse Seam Top in Black,Size,XS,Color,Black,,,10641379,,,67,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,4
+millie-reverse-seam-top-in-black,Millie Reverse Seam Top in Black,Size,S,Color,Black,,,10641380,,,95,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+millie-reverse-seam-top-in-black,Millie Reverse Seam Top in Black,Size,M,Color,Black,,,10641381,,,110,-6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
