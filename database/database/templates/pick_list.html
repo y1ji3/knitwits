@@ -17,7 +17,23 @@
 		<a href="/out-of-stock/">Out of Stock</a> |
 		<a href="/pick-list/">Pick List</a> |
 		<a href="/notifications/">Notifications</a>
+		| <a href="/pick-list/?sort=shop">Sort by Shop</a>
+		| <a href="/pick-list/">Default Sort</a>
 	</nav>
+
+	<form method="get" action="/pick-list/">
+		<label for="shop">Pick a store:</label>
+		<select name="shop" id="shop">
+			<option value="">All Stores</option>
+			{% for store in stores %}
+				<option value="{{ store.shop_id }}" {% if selected_shop_id == store.shop_id|stringformat:"s" %}selected{% endif %}>{{ store.name }}</option>
+			{% endfor %}
+		</select>
+		{% if current_sort %}
+			<input type="hidden" name="sort" value="{{ current_sort }}">
+		{% endif %}
+		<button type="submit">Apply</button>
+	</form>
 
 	<table border="1" cellpadding="8" cellspacing="0">
 		<thead>
@@ -25,7 +41,8 @@
 				<th>Store</th>
 				<th>Product</th>
 				<th>Variant</th>
-				<th rowspan="2">Stocks</th>
+				<th>Current Stock</th>
+				<th>Pull Needed</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -34,31 +51,16 @@
 				<td>{{ item.shop.name }}</td>
 				<td>{{ item.product.name }}</td>
 				<td>{{ item.product.variant }}</td>
-				<td>Current stock: {{ item.stock }}</td>
-				<td>Pull needed: {{ item.pull_needed }}</td>
+				<td>{{ item.stock }}</td>
+				<td>{{ item.pull_needed }}</td>
 			</tr>
 			{% empty %}
 				<tr>
-					<td colspan="4">No stores found.</td>
+					<td colspan="5">No stores found.</td>
 				</tr>
 			{% endfor %}
 		</tbody>
 	</table>
-
-	{% for item in pick_list_items %}
-		{{ item.shop.name }} | 
-		{{ item.product.name }} | 
-		{{ item.product.variant }} | 
-		Current stock: {{ item.stock }} | 
-		Pull needed: {{ item.pull_needed }}
-	{% endfor %}
-
-	{% for product in total_by_product %}
-		{{ product.product__name }} | 
-		{{ product.product__variant }} | 
-		Total current stock: {{ product.total_stock }} | 
-		Total pull needed: {{ product.total_pull }}
-	{% endfor %}
 
 	{% comment %} <ul>
 		{% for item in pick_list_items %}

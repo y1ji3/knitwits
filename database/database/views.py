@@ -2,7 +2,6 @@
 
 from django.shortcuts import render
 from django.db.models import Sum, F, ExpressionWrapper, IntegerField
-from django.db.models.functions import Coalesce
 
 from .models import Shop, ShopInventory
 
@@ -19,20 +18,32 @@ def out_of_stock(request): #returns a list of items that are out of stock (stock
     return render(request, 'out_of_stock.html', {'out_of_stock_items': out_of_stock_items})
 
 def all_pick_list(request): #returns a list of items that need to be picked (stock 4 or less)
+    sort = request.GET.get('sort')
+    selected_shop_id = request.GET.get('shop')
+
+    if sort == 'shop':
+        ordering = ('shop__name', 'product__name')
+    else:
+        ordering = ('product__name', 'shop__name')
+
+    stores = Shop.objects.order_by('name')
+
+    base_queryset = ShopInventory.objects.filter(stock__lte=4)
+    if selected_shop_id:
+        base_queryset = base_queryset.filter(shop_id=selected_shop_id)
+
     pick_list_items = (
-        ShopInventory.objects
+        base_queryset
         .select_related('shop', 'product')
-        .filter(stock__lte=4)
         .annotate(pull_needed=ExpressionWrapper(4 - F('stock'), output_field=IntegerField()))
-        .order_by('product__name', 'shop__name')
+        .order_by(*ordering)
     )
 
     # print("Pick List Items:")
     # print(list(pick_list_items))
 
     total_by_product = (
-        ShopInventory.objects
-        .filter(stock__lte=4)
+        base_queryset
         .values('product__name', 'product__variant')
         .annotate(
             total_pull=Sum(ExpressionWrapper(4 - F('stock'), output_field=IntegerField())),
@@ -43,7 +54,10 @@ def all_pick_list(request): #returns a list of items that need to be picked (sto
 
     return render(request, 'pick_list.html', {
         'pick_list_items': pick_list_items,
-        'total_by_product': total_by_product
+        'total_by_product': total_by_product,
+        'current_sort': sort,
+        'stores': stores,
+        'selected_shop_id': selected_shop_id,
     })
 
 def notifications(request):
