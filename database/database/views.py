@@ -3,6 +3,11 @@
 from django.shortcuts import render
 from .models import Item
 
+def dashboard(request):
+    store_stats = {
+        'total_items': Item.objects.count(),
+    }
+    return render(request, 'dashboard.html', {'store_stats': store_stats})
 
 def low_stock(request): #returns a list of items with low stock (5 or less)
     low_stock_items = Item.objects.filter(stock__lte=5)
