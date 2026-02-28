@@ -12,7 +12,7 @@ class Product(models.Model):
     sku = models.CharField(max_length=50)
     name = models.CharField(max_length=250)
     variant = models.CharField(max_length=250)
-    category = models.CharField(max_length=250)
+    category = models.CharField(max_length=250, default='')
 
     def __str__(self):
         return f'{self.sku}: {self.name} -- {self.variant}'
@@ -32,11 +32,11 @@ class Shop(models.Model):
 
 class TierThreshold(models.Model):
     shop = models.OneToOneField(Shop, on_delete=models.CASCADE, related_name='thresholds')
-    xs_thresh = models.IntegerField(default=0)
-    s_thresh = models.IntegerField(default=0)
-    m_thresh = models.IntegerField(default=0)
-    l_thresh = models.IntegerField(default=0)
-    xl_thresh = models.IntegerField(default=0)
+    xs_thresh = models.IntegerField(default=4)
+    s_thresh = models.IntegerField(default=4)
+    m_thresh = models.IntegerField(default=4)
+    l_thresh = models.IntegerField(default=2)
+    xl_thresh = models.IntegerField(default=2)
 
 class DistributionCenter(models.Model):
     name = models.CharField(max_length=1024)

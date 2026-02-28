@@ -9,7 +9,7 @@
 	<title>Thresholds</title>
 </head>
 <body>
-	<h1>Pick List Items</h1>
+	<h1>Thresholds</h1>
 
 	<nav>
 		<a href="/">Dashboard</a> |
@@ -17,41 +17,40 @@
 		<a href="/out-of-stock/">Out of Stock</a> |
 		<a href="/pick-list/">Pick List</a> |
 		<a href="/notifications/">Notifications</a> |
-        <a href="/threshholds/">Thresholds</a>
+		<a href="/thresholds/">Thresholds</a>
 	</nav>
 
-	<table border="1" cellpadding="8" cellspacing="0">
-		<thead>
-			<tr>
-				<th>Store</th>
-				<th>Product</th>
-				<th>Variant</th>
-				<th>Current Stock</th>
-				<th>Pull Needed</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for store in thresholds %}
-			<tr>
-				<td>{{ store.shop.name }}</td>
-				<td>{{ store.product.name }}</td>
-				<td>{{ store.product.variant }}</td>
-				<td>{{ store.par_value }}</td>
-			</tr>
-			{% empty %}
+	<form method="post" action="/thresholds/">
+		{% csrf_token %}
+		{% if saved %}
+			<p>Threshold values updated.</p>
+		{% endif %}
+		{% if save_error %}
+			<p>{{ save_error }}</p>
+		{% endif %}
+		<table border="1" cellpadding="8" cellspacing="0">
+			<thead>
 				<tr>
-					<td colspan="5">No stores found.</td>
+					<th>XS Threshold</th>
+					<th>S Threshold</th>
+					<th>M Threshold</th>
+					<th>L Threshold</th>
+					<th>XL Threshold</th>
 				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="number" name="xs_thresh" value="{{ threshold_values.xs_thresh }}" min="0"></td>
+					<td><input type="number" name="s_thresh" value="{{ threshold_values.s_thresh }}" min="0"></td>
+					<td><input type="number" name="m_thresh" value="{{ threshold_values.m_thresh }}" min="0"></td>
+					<td><input type="number" name="l_thresh" value="{{ threshold_values.l_thresh }}" min="0"></td>
+					<td><input type="number" name="xl_thresh" value="{{ threshold_values.xl_thresh }}" min="0"></td>
+				</tr>
+			</tbody>
+		</table>
 
-	{% comment %} <ul>
-		{% for item in pick_list_items %}
-			<li>{{ item.shop.name }} - {{ item.product.name }} ({{ item.product.variant }}) - Stock: {{ item.stock }}</li>
-		{% empty %}
-			<li>No items currently in pick list.</li>
-		{% endfor %}
-	</ul> {% endcomment %}
+		<button type="submit">Save Thresholds</button>
+		<button type="submit" name="refresh_calculations" value="1">Refresh Pick List Calculations</button>
+	</form>
 </body>
 </html>
