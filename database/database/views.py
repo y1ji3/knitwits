@@ -17,6 +17,8 @@ def out_of_stock(request): #returns a list of items that are out of stock (stock
     return render(request, 'out_of_stock.html', {'out_of_stock_items': out_of_stock_items})
 
 def all_pick_list(request): #returns a list of items that need to be picked (stock 5 or less)
-    pick_list_items = ShopInventory.objects.select_related('shop', 'product').filter(stock__lte=5).order_by('shop__name', 'product__name')
+    pick_list_items = ShopInventory.objects.select_related('shop', 'product').filter(stock__lte=5).order_by('shop__name', 'product__name').values_list('shop__name', 'product__name', 'product__variant', 'stock')
+    print("Pick List Items:")
+    print(list(pick_list_items))
     return render(request, 'pick_list.html', {'pick_list_items': pick_list_items})
 
