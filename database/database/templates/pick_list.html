@@ -19,12 +19,53 @@
 		<a href="/notifications/">Notifications</a>
 	</nav>
 
-	<ul>
+	<table border="1" cellpadding="8" cellspacing="0">
+		<thead>
+			<tr>
+				<th>Store</th>
+				<th>Product</th>
+				<th>Variant</th>
+				<th rowspan="2">Stocks</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in pick_list_items %}
+			<tr>
+				<td>{{ item.shop.name }}</td>
+				<td>{{ item.product.name }}</td>
+				<td>{{ item.product.variant }}</td>
+				<td>Current stock: {{ item.stock }}</td>
+				<td>Pull needed: {{ item.pull_needed }}</td>
+			</tr>
+			{% empty %}
+				<tr>
+					<td colspan="4">No stores found.</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	{% for item in pick_list_items %}
+		{{ item.shop.name }} | 
+		{{ item.product.name }} | 
+		{{ item.product.variant }} | 
+		Current stock: {{ item.stock }} | 
+		Pull needed: {{ item.pull_needed }}
+	{% endfor %}
+
+	{% for product in total_by_product %}
+		{{ product.product__name }} | 
+		{{ product.product__variant }} | 
+		Total current stock: {{ product.total_stock }} | 
+		Total pull needed: {{ product.total_pull }}
+	{% endfor %}
+
+	{% comment %} <ul>
 		{% for item in pick_list_items %}
 			<li>{{ item.shop.name }} - {{ item.product.name }} ({{ item.product.variant }}) - Stock: {{ item.stock }}</li>
 		{% empty %}
 			<li>No items currently in pick list.</li>
 		{% endfor %}
-	</ul>
+	</ul> {% endcomment %}
 </body>
 </html>
