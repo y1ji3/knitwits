@@ -8,15 +8,23 @@ class Sizes(models.TextChoices):
     L = "L", "Large"
     XL = "XL", "X-Large"
 
+class Product(models.Model):
+    sku = models.CharField(max_length=50)
+    name = models.CharField(max_length=250)
+    variant = models.CharField(max_length=250)
+
+    def __str__(self):
+        return f'{self.sku}: {self.name} -- {self.variant}'
 
 class Shop(models.Model):
     class Tier(models.TextChoices):
-        A = "A", "A Tier"
-        B = "B", "B Tier"
+        # A = "A", "A Tier"
+        # B = "B", "B Tier"
+        pass
 
     shop_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=1024)
-    tier = models.CharField(max_length=1, choices=Tier.choices, default=Tier.A)
+    # tier = models.CharField(max_length=1, choices=Tier.choices, default=Tier.A)
 
     def __str__(self):
         return f'{self.shop_id}: {self.name}'
@@ -31,7 +39,7 @@ class TierThreshold(models.Model):
 
 class DistributionCenter(models.Model):
     name = models.CharField(max_length=1024)
-    allocation = models.IntegerField(default=0)  # max units a shop can pull per reorder
+    allocation = models.IntegerField(default=0)  
     shops = models.ManyToManyField(Shop, related_name='distribution_centers', blank=True)
 
     def __str__(self):
@@ -47,14 +55,6 @@ class DCInventory(models.Model):
 
     class Meta:
         unique_together = ('dc', 'product')
-
-class Product(models.Model):
-    sku = models.CharField(max_length=50)
-    name = models.CharField(max_length=250)
-    variant = models.CharField(max_length=250)
-
-    def __str__(self):
-        return f'{self.sku}: {self.name} -- {self.variant}'
 
 class ShopInventory(models.Model):
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE, related_name="inventory")
