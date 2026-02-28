@@ -4,16 +4,27 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Low Stock</title>
+	<style>
+		body { margin: 0; padding: 24px; font-family: Arial, sans-serif; background: #f3f4f6; color: #111827; }
+		.page { max-width: 1100px; margin: 0 auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; }
+		h1 { margin-top: 0; margin-bottom: 16px; }
+		nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+		nav a { text-decoration: none; color: #1f2937; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; padding: 6px 10px; }
+		nav a:hover { background: #e5e7eb; }
+		ul { margin: 0; padding-left: 18px; }
+		li { padding: 8px 0; border-bottom: 1px solid #e5e7eb; }
+	</style>
 </head>
 <body>
+	<main class="page">
 	<h1>Low Stock Items</h1>
 
 	<nav>
-		<a href="/">Dashboard</a> |
-		<a href="/low-stock/">Low Stock</a> |
-		<a href="/out-of-stock/">Out of Stock</a> |
-		<a href="/pick-list/">Pick List</a> |
-		<a href="/notifications/">Notifications</a> |
+		<a href="/">Dashboard</a>
+		<a href="/low-stock/">Low Stock</a>
+		<a href="/out-of-stock/">Out of Stock</a>
+		<a href="/pick-list/">Pick List</a>
+		<a href="/notifications/">Notifications</a>
 		<a href="/thresholds/">Thresholds</a>
 	</nav>
 
@@ -24,5 +35,6 @@
 			<li>No low stock items.</li>
 		{% endfor %}
 	</ul>
+	</main>
 </body>
 </html>

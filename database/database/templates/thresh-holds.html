@@ -7,28 +7,46 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Thresholds</title>
+	<style>
+		body { margin: 0; padding: 24px; font-family: Arial, sans-serif; background: #f3f4f6; color: #111827; }
+		.page { max-width: 1100px; margin: 0 auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; }
+		h1 { margin-top: 0; margin-bottom: 16px; }
+		nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+		nav a { text-decoration: none; color: #1f2937; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; padding: 6px 10px; }
+		nav a:hover { background: #e5e7eb; }
+		table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+		th, td { text-align: left; padding: 10px; border-bottom: 1px solid #e5e7eb; }
+		th { background: #f9fafb; }
+		input[type="number"] { width: 100%; box-sizing: border-box; padding: 7px 10px; border-radius: 8px; border: 1px solid #d1d5db; }
+		.button-row { display: flex; gap: 10px; flex-wrap: wrap; }
+		button { padding: 8px 12px; border: none; border-radius: 8px; cursor: pointer; background: #111827; color: #fff; }
+		button:hover { background: #374151; }
+		.status { margin: 8px 0; padding: 8px 10px; border-radius: 8px; background: #ecfdf5; border: 1px solid #a7f3d0; }
+		.error { margin: 8px 0; padding: 8px 10px; border-radius: 8px; background: #fef2f2; border: 1px solid #fecaca; }
+	</style>
 </head>
 <body>
+	<main class="page">
 	<h1>Thresholds</h1>
 
 	<nav>
-		<a href="/">Dashboard</a> |
-		<a href="/low-stock/">Low Stock</a> |
-		<a href="/out-of-stock/">Out of Stock</a> |
-		<a href="/pick-list/">Pick List</a> |
-		<a href="/notifications/">Notifications</a> |
+		<a href="/">Dashboard</a>
+		<a href="/low-stock/">Low Stock</a>
+		<a href="/out-of-stock/">Out of Stock</a>
+		<a href="/pick-list/">Pick List</a>
+		<a href="/notifications/">Notifications</a>
 		<a href="/thresholds/">Thresholds</a>
 	</nav>
 
 	<form method="post" action="/thresholds/">
 		{% csrf_token %}
 		{% if saved %}
-			<p>Threshold values updated.</p>
+			<p class="status">Threshold values updated.</p>
 		{% endif %}
 		{% if save_error %}
-			<p>{{ save_error }}</p>
+			<p class="error">{{ save_error }}</p>
 		{% endif %}
-		<table border="1" cellpadding="8" cellspacing="0">
+		<table>
 			<thead>
 				<tr>
 					<th>XS Threshold</th>
@@ -49,9 +67,11 @@
 			</tbody>
 		</table>
 
-		<but
-        ton type="submit">Save Thresholds</button>
-		<button type="submit" name="refresh_calculations" value="1">Refresh Pick List Calculations</button>
+		<div class="button-row">
+			<button type="submit">Save Thresholds</button>
+			<button type="submit" name="refresh_calculations" value="1">Refresh Pick List Calculations</button>
+		</div>
 	</form>
+	</main>
 </body>
 </html>
